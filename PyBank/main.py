@@ -24,14 +24,13 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
         net_profit.append(row[1])
 # put the months and net_profit together into rows
 budget = zip(months, net_profit)
-print(months)
-print(len(months))
-#for elmt in budget:
-    #print(elmt)
-#print(elmt [1]) 
-
+# net_profit is a list so turn into int for sum
+total = 0
+for month in net_profit:
+    total = total + int(month)
 #   under this comment is everything we want to print on the homework
 print("```text")
 print("Financial Analysis")
 print("----------------------------")
 print(f'Total Months: {len(months)}')
+print(f'Total: {total}')
