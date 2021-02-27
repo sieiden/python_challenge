@@ -35,16 +35,22 @@ print(change_y/change_x)
 # find greatest increase in profits
 #turn lists into a dictionary
 stats_profit = {months[i]: net_profit[i] for i in range(len(months))}
+#find greatest increase and greatest decrease
 greatest_increase = 0
+greatest_decrease = 0
 for key in stats_profit:
     key = key
     x = int(stats_profit[key])
-    if x > greatest_increase:
+    if x > 0 and x > greatest_increase:
         greatest_increase = x
         y = [key,x]
+    elif x < 0 and x < greatest_decrease:
+        greatest_decrease = x
+        z = [key,x]
     else:
         greatest_increase = greatest_increase
-print(y)
+        greatest_decrease = greatest_decrease
+
 #   under this comment is everything we want to print on the homework
 print("```text")
 print("Financial Analysis")
@@ -52,6 +58,6 @@ print("----------------------------")
 print(f'Total Months: {len(months)}')
 print(f'Total: ${total}')
 print(f'Average Change: $')
-print(f'Greatest Increase in Profits: ')
-print(f'Greatest Decrease in Profits: ')
+print(f'Greatest Increase in Profits: {y[0]} (${y[1]})')
+print(f'Greatest Decrease in Profits: {z[0]} (${z[1]})')
 print("'''")
