@@ -36,22 +36,17 @@ for count in range(len(net_profit[:-1])):
     z = x-y
     for_average.append(z)
     count +=1
-print(type(for_average)
-#    int(i)
-#    x = int(net_profit[i+1])
-#    y = int(net_profit[i])
-#    z = x - y
-#    for_average.append(z)
-# print(for_average)
-#turn lists into a dictionary
-stats_profit = {months[i]: net_profit[i] for i in range(len(months))}
+change = round((sum(for_average)/len(for_average),2)
 
-#find greatest increase and greatest decrease
+#turn lists into a dictionary
+my_dict = {months[i]: net_profit[i] for i in range(len(months))}
+
+# #find greatest increase and greatest decrease
 greatest_increase = 0
 greatest_decrease = 0
-for key in stats_profit:
+for key in my_dict:
     key = key
-    x = int(stats_profit[key])
+    x = int(my_dict[key])
     if x > 0 and x > greatest_increase:
         greatest_increase = x
         y = [key,x]
@@ -68,7 +63,7 @@ print("Financial Analysis")
 print("----------------------------")
 print(f'Total Months: {len(months)}')
 print(f'Total: ${total}')
-print(f'Average Change: $')
+ print(f'Average Change: ${change}')
 print(f'Greatest Increase in Profits: {y[0]} (${y[1]})')
 print(f'Greatest Decrease in Profits: {z[0]} (${z[1]})')
 print("'''")
