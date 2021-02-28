@@ -25,16 +25,21 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
         voter_id.append(row[0])
         county.append(row[1])
         candidate.append(row[2])
+# add unique values to candidate list
+unique = []
+for person in candidate:
+    if person not in unique:
+        unique.append(person)
 #   under this comment is everything we want to print on the homework
 print("```text")
 print("Election Results")
 print("----------------------------")
 print(f'Total Votes: {len(voter_id)}')
 print("----------------------------")
-print(f'Khan:')
-print(f'Correy:')
-print(f'Li:)')
-print(f'O\'Tooley:')
+print(f'{unique[0]}:')
+print(f'{unique[1]}:')
+print(f'{unique[2]}:')
+print(f'{unique[3]}:')
 print("----------------------------")
 print(f'Winner:')
 print("```")
