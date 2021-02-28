@@ -30,16 +30,39 @@ unique = []
 for person in candidate:
     if person not in unique:
         unique.append(person)
-#   under this comment is everything we want to print on the homework
+# Find the total number of votes each candidate won
+candidate0_total= 0
+candidate1_total = 0
+candidate2_total = 0
+candidate3_total = 0
+candidate0 = unique[0]
+candidate1 = unique[1]
+candidate2 = unique[2]
+candidate3 = unique[3]
+for name in candidate:
+    if name == candidate0:
+         candidate0_total +=1
+    elif name == candidate1:
+         candidate1_total +=1
+    elif name == candidate2:
+         candidate2_total +=1 
+    elif name == candidate3:
+         candidate3_total +=1 
+      
+# Find the percentage of votes each candidate won
+
+# Find the winner of the election based on popular vote.
+
+# under this comment is everything we want to print on the homework
 print("```text")
 print("Election Results")
 print("----------------------------")
 print(f'Total Votes: {len(voter_id)}')
 print("----------------------------")
-print(f'{unique[0]}:')
-print(f'{unique[1]}:')
-print(f'{unique[2]}:')
-print(f'{unique[3]}:')
+print(f'{unique[0]}: ({candidate0_total})')
+print(f'{unique[1]}:({candidate1_total})')
+print(f'{unique[2]}:({candidate2_total})')
+print(f'{unique[3]}:({candidate3_total})')
 print("----------------------------")
 print(f'Winner:')
 print("```")
