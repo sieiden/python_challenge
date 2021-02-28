@@ -4,7 +4,7 @@ import os
 
 # Module for reading CSV files
 import csv
-csvpath = os.path.join(.., 'python_challenge','PyPoll','Resources', 'election_data.csv')
+csvpath = os.path.join('Resources', 'election_data.csv')
 
 #create lists to hold values
 voter_id = []
@@ -22,6 +22,19 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
     # Read each row of data after the header
     for row in csvreader:
         # append to value lists
-        votor_id.append(row[0])
+        voter_id.append(row[0])
         county.append(row[1])
-        candidate.append(row[3])
+        candidate.append(row[2])
+#   under this comment is everything we want to print on the homework
+print("```text")
+print("Election Results")
+print("----------------------------")
+print(f'Total Votes: {len(voter_id)}')
+print("----------------------------")
+print(f'Khan:')
+print(f'Correy:')
+print(f'Li:)')
+print(f'O\'Tooley:')
+print("----------------------------")
+print(f'Winner:')
+print("```")
