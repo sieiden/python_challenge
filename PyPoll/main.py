@@ -50,6 +50,12 @@ for name in candidate:
          candidate3_total +=1 
       
 # Find the percentage of votes each candidate won
+totals =[candidate0_total,candidate1_total,candidate2_total,candidate3_total]
+ctotals = []
+for total in totals:
+    x =(total/len(voter_id))*100
+    y = round(x,3)
+    ctotals.append(y)
 
 # Find the winner of the election based on popular vote.
 
@@ -59,10 +65,10 @@ print("Election Results")
 print("----------------------------")
 print(f'Total Votes: {len(voter_id)}')
 print("----------------------------")
-print(f'{unique[0]}: ({candidate0_total})')
-print(f'{unique[1]}:({candidate1_total})')
-print(f'{unique[2]}:({candidate2_total})')
-print(f'{unique[3]}:({candidate3_total})')
+print(f'{unique[0]}: {ctotals[0]}% ({candidate0_total})')
+print(f'{unique[1]}: {ctotals[1]}% ({candidate1_total})')
+print(f'{unique[2]}: {ctotals[2]}% ({candidate2_total})')
+print(f'{unique[3]}: {ctotals[3]}% ({candidate3_total})')
 print("----------------------------")
 print(f'Winner:')
 print("```")
