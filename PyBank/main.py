@@ -22,19 +22,30 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
         # append to value lists
         months.append(row[0])
         net_profit.append(row[1])
-# put the months and net_profit together into rows
-budget = zip(months, net_profit)
 # find total of net_profit
 total = 0
 for month in net_profit:
     total = total + int(month)
+
 #find average change in net_profit (change y/change x)
-change_y = int(net_profit[-1])-int(net_profit[0])
-change_x = int(len(months))
-print(change_y/change_x)
-# find greatest increase in profits
+for_average = []
+count = 0
+for count in range(len(net_profit[:-1])):
+    x = int(net_profit[count+1])
+    y = int(net_profit[count])
+    z = x-y
+    for_average.append(z)
+    count +=1
+print(type(for_average)
+#    int(i)
+#    x = int(net_profit[i+1])
+#    y = int(net_profit[i])
+#    z = x - y
+#    for_average.append(z)
+# print(for_average)
 #turn lists into a dictionary
 stats_profit = {months[i]: net_profit[i] for i in range(len(months))}
+
 #find greatest increase and greatest decrease
 greatest_increase = 0
 greatest_decrease = 0
