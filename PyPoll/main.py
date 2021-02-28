@@ -58,6 +58,16 @@ for total in totals:
     ctotals.append(y)
 
 # Find the winner of the election based on popular vote.
+cwinner = {unique[i]: totals[i] for i in range(len(unique))}
+highest_votes = 0
+for key in cwinner:
+    key = key
+    x = int(cwinner[key])
+    if x > highest_votes:
+        highest_votes = x
+        y = [key,x]
+    else:
+        highest_votes = highest_votes
 
 # under this comment is everything we want to print on the homework
 print("```text")
@@ -70,5 +80,5 @@ print(f'{unique[1]}: {ctotals[1]}% ({candidate1_total})')
 print(f'{unique[2]}: {ctotals[2]}% ({candidate2_total})')
 print(f'{unique[3]}: {ctotals[3]}% ({candidate3_total})')
 print("----------------------------")
-print(f'Winner:')
+print(f'Winner: {y[0]}')
 print("```")
