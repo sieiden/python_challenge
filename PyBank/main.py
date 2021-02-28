@@ -38,14 +38,15 @@ for count in range(len(net_profit[:-1])):
     count +=1
 change = round((sum(for_average)/len(for_average),2)
 
-#turn lists into a dictionary
-profitanalysis = {months[i]: net_profit[i] for i in range(len(months))}
-######
+# #turn lists into a dictionary
+# #profitanalysis = {months[i]: net_profit[i] for i in range(len(months))}
+# ######
 # profitanalysis = {}
-# for i in months:
-#     for profit in net_profit:
-#         profitanalysis[i] = profit
+# for key in months:
+#     for value in net_profit:
+#         profitanalysis[key] = value
 # print(profitanalysis)
+
 #find greatest increase and greatest decrease
 greatest_increase = 0
 greatest_decrease = 0
