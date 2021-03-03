@@ -22,24 +22,7 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
         # append to value lists
         months.append(row[0])
         net_profit.append(row[1])
-# find total of net_profit
-total = 0
-for month in net_profit:
-    total += int(month)
 
-#find average change in net_profit (change y/change x)
-for_average = []
-count = 0
-for count in range(len(net_profit[:-1])):
-    x = int(net_profit[count+1])
-    y = int(net_profit[count])
-    z = x-y
-    for_average.append(z)
-    count +=1
-average = (sum(for_average)/len(for_average))
-change=(round(average,2))
-
-#turn lists into a dictionary
 profitanalysis = {months[i]:net_profit[i] for i in range(len(months))}
 greatest_increase = 0
 greatest_decrease = 0
@@ -55,15 +38,5 @@ for key in profitanalysis:
     else:
         greatest_increase = greatest_increase
         greatest_decrease = greatest_decrease
-
-
-#   under this comment is everything we want to print on the homework
-print("```text")
-print("Financial Analysis")
-print("----------------------------")
-print(f'Total Months: {len(months)}')
-print(f'Total: ${total}')
-print(f'Average Change: ${change}')
-print(f'Greatest Increase in Profits: {y[0]} (${y[1]})')
-print(f'Greatest Decrease in Profits: {z[0]} (${z[1]})')
-print("'''")
+print(greatest_increase)
+print(greatest_decrease)
