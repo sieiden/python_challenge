@@ -25,7 +25,7 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
 # find total of net_profit
 total = 0
 for month in net_profit:
-    total += int(month)
+    total = total + int(month)
 
 #find average change in net_profit (change y/change x)
 for_average = []
@@ -39,7 +39,7 @@ for count in range(len(net_profit[:-1])):
 change = round((sum(for_average)/len(for_average),2)
 
 # #turn lists into a dictionary
-my_analysis = {months[i]:net_profit[i] for i in range(len(months))}
+profitanalysis = {months[i]: net_profit[i] for i in range(len(months))}
 # ######
 # profitanalysis = {}
 # for key in months:
@@ -50,9 +50,9 @@ my_analysis = {months[i]:net_profit[i] for i in range(len(months))}
 #find greatest increase and greatest decrease
 greatest_increase = 0
 greatest_decrease = 0
-for key in my_analysis:
+for key in profitanalysis:
     key = key
-    x = int(my_analysis[key])
+    x = int(profitanalysis[key])
     if x > 0 and x > greatest_increase:
         greatest_increase = x
         y = [key,x]
