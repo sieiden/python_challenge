@@ -67,3 +67,16 @@ print(f'Average Change: ${change}')
 print(f'Greatest Increase in Profits: {y[0]} (${y[1]})')
 print(f'Greatest Decrease in Profits: {z[0]} (${z[1]})')
 print("'''")
+
+# Set variable for output txt file
+my_file = os.path.join("pybank.txt")
+with open(my_file, "w") as datafile: 
+    datafile.write("```text\n")
+    datafile.write("Financial Analysis\n")
+    datafile.write("----------------------------\n")
+    datafile.write(f'Total Months: {len(months)}\n')
+    datafile.write(f'Total: ${total}\n')
+    datafile.write(f'Average Change: ${change}\n')
+    datafile.write(f'Greatest Increase in Profits: {y[0]} (${y[1]})\n')
+    datafile.write(f'Greatest Decrease in Profits: {z[0]} (${z[1]})\n')
+    datafile.write("'''\n")
