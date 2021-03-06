@@ -1,7 +1,7 @@
 #import the os module
 import os
 
-# Module for reading CSV files
+#import the module for reading CSV files
 import csv
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
@@ -16,12 +16,13 @@ with open(csvpath, "r", encoding='utf8') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     # Read the header row first 
-    csv_header = next(csvreader) # pop one row
+    csv_header = next(csvreader) # remove the header from the analyzed lists
     # Read each row of data after the header
     for row in csvreader:
-        # append to value lists
+        # add each value to designated list
         months.append(row[0])
         net_profit.append(row[1])
+
 # find total of net_profit
 total = 0
 for month in net_profit:
@@ -37,12 +38,16 @@ for count in range(len(net_profit[:-1])):
     for_average.append(z)
     count +=1
 average = (sum(for_average)/len(for_average))
+
+#round average to 2 decimals
 change=(round(average,2))
 
 #turn lists into a dictionary
 profitanalysis = {months[i]:net_profit[i] for i in range(len(months))}
 greatest_increase = 0
 greatest_decrease = 0
+
+#find greatest increase and greatest decrease
 for key in profitanalysis:
     key = key
     x = int(profitanalysis[key])
@@ -70,6 +75,8 @@ print("'''")
 
 # Set variable for output txt file
 my_file = os.path.join("pybank.txt")
+
+#open text file and write to it
 with open(my_file, "w") as datafile: 
     datafile.write("```text\n")
     datafile.write("Financial Analysis\n")
