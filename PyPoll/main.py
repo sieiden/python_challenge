@@ -1,9 +1,10 @@
-#this is for PyPoll
 #import the os module
 import os
 
-# Module for reading CSV files
+# import module for reading CSV files
 import csv
+
+#identify the path to the file
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 #create lists to hold values
@@ -14,22 +15,24 @@ candidate = []
 #read csv file
 with open(csvpath, "r", encoding='utf8') as csvfile:
 
-    # CSV reader specifies delimiter and variable that holds contents
+    # CSV reader specifies delimiter and variable that holds file contents
     csvreader = csv.reader(csvfile, delimiter=',')
 
     # Read the header row first 
-    csv_header = next(csvreader) # pop one row
+    csv_header = next(csvreader) # remove the header from analysis
     # Read each row of data after the header
     for row in csvreader:
-        # append to value lists
+        # add value to specified list
         voter_id.append(row[0])
         county.append(row[1])
         candidate.append(row[2])
+
 # add unique values to candidate list
 unique = []
 for person in candidate:
     if person not in unique:
         unique.append(person)
+
 # Find the total number of votes each candidate won
 candidate0_total= 0
 candidate1_total = 0
